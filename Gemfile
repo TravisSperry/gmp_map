@@ -18,3 +18,4 @@ gem 'mailchimp-api', require: 'mailchimp'
 gem 'rack-cors'
 gem 'topojson-rails'
 gem 'geocoder'
+gem 'rails_12factor', group: :production
