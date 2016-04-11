@@ -3,7 +3,7 @@ class SubscribersController < ApplicationController
 
   def new_subscriber
     # verify token
-    @subscriber = Subscriber.new(subscriber_params)
+    @subscriber = Subscriber.new(subscriber_params) if subscriber_params
 
     respond_to do |format|
       if @subscriber.save
