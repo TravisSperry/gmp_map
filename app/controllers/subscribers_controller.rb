@@ -8,9 +8,9 @@ class SubscribersController < ApplicationController
         #   message: 'hello world'
         # })
 
-        render :nothing => true, :status => 200
+        render :nothing => true, :status => 200, :content_type => 'text/html'
       else
-        render :nothing => true, :status => 200
+        render :nothing => true, :status => 200, :content_type => 'text/html'
       end
     end
   end
