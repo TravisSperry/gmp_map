@@ -1,5 +1,6 @@
 class SubscribersController < ApplicationController
   # before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token, :only => [:new_subscriber]
 
   def new_subscriber
     if params.has_key?(:data)
