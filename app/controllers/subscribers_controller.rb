@@ -2,7 +2,7 @@ class SubscribersController < ApplicationController
   # before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
 
   def new_subscriber
-    if params
+    if params.has_key?(:data)
       ip_locator_result = Geocoder.search(params['data']['ip_opt'])
 
       @subscriber = Subscriber.new  longitude: ip_locator_result.first.longitude,
