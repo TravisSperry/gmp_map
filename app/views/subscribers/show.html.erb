@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @subscriber.longitude %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @subscriber.latitude %>
+</p>
+
+<%= link_to 'Edit', edit_subscriber_path(@subscriber) %> |
+<%= link_to 'Back', subscribers_path %>
