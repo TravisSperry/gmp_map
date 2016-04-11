@@ -3,7 +3,7 @@ class SubscribersController < ApplicationController
 
   def new_subscriber
     # verify token
-    if params
+    unless params.empty?
       @subscriber = Subscriber.new(subscriber_params)
 
       respond_to do |format|
