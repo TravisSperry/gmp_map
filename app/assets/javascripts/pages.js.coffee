@@ -12,8 +12,8 @@ jQuery ->
     encrypted: true
 
   channel = pusher.subscribe 'Subscriber_Channel'
-  channel.bind 'New_Subscriber', (data) ->
-    xy = projection(data)
+  channel.bind 'New_Subscriber', (response) ->
+    xy = projection(response.data)
     svg.append("circle").attr
       cx: xy[0],
       cy: xy[1],
