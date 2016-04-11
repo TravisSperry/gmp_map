@@ -12,9 +12,6 @@ class SubscribersController < ApplicationController
     end
     respond_to do |format|
       if @subscriber && @subscriber.save
-        Pusher.trigger('test_channel', 'my_event', {
-          message: 'hello world'
-        })
         format.html{ render nothing: true }
       else
         format.html{ render nothing: true }
