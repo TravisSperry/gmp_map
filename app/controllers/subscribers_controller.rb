@@ -2,12 +2,12 @@ class SubscribersController < ApplicationController
   # before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
 
   def new_subscriber
+    ip_locator_result = Geocoder.search(params['data']['ip_opt'])
+
+    @subscriber = Subscriber.new  longitude: ip_locator_result.first.longitude,
+                                  latitude: ip_locator_result.first.longitude
+                                  
     respond_to do |format|
-      ip_locator_result = Geocoder.search(params['data']['ip_opt'])
-
-      @subscriber = Subscriber.new  longitude: ip_locator_result.first.longitude,
-                                    latitude: ip_locator_result.first.longitude
-
       if @subscriber && @subscriber.save
         Pusher.trigger('test_channel', 'my_event', {
           message: 'hello world'
