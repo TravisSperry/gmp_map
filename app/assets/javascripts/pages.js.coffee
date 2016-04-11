@@ -13,7 +13,12 @@ jQuery ->
 
   channel = pusher.subscribe 'Subscriber_Channel'
   channel.bind 'New_Subscriber', (data) ->
-    console.log data
+    xy = projection(data)
+    svg.append("circle").attr
+      cx: xy[0],
+      cy: xy[1],
+      r: 2,
+      fill: 'red'
 
   svg = d3.select('body').append('svg').attr('width', width).attr('height', height)
   svg.append('path').datum(graticule).attr('class', 'graticule').attr 'd', path
