@@ -8,7 +8,7 @@ class SubscribersController < ApplicationController
       ip_locator_result = Geocoder.search(params['data']['ip_opt'])
 
       @subscriber = Subscriber.new  longitude: ip_locator_result.first.longitude,
-                                    latitude: ip_locator_result.first.longitude
+                                    latitude: ip_locator_result.first.latitude
     end
     respond_to do |format|
       if @subscriber && @subscriber.save
