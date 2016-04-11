@@ -7,10 +7,9 @@ class SubscribersController < ApplicationController
         # Pusher.trigger('test_channel', 'my_event', {
         #   message: 'hello world'
         # })
-
-        render nothing:true
+        format.html{ render nothing:true }
       else
-        render nothing:true
+        format.html{ render nothing:true }
       end
     end
   end
