@@ -1,24 +1,17 @@
 class SubscribersController < ApplicationController
-  before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
+  # before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
 
   def new_subscriber
-    # verify token
-    unless params.empty?
-      @subscriber = Subscriber.new(subscriber_params)
+    respond_to do |format|
+      if @subscriber && @subscriber.save
+        # Pusher.trigger('test_channel', 'my_event', {
+        #   message: 'hello world'
+        # })
 
-      respond_to do |format|
-        if @subscriber.save
-          # Pusher.trigger('test_channel', 'my_event', {
-          #   message: 'hello world'
-          # })
-
-          render :nothing => true, :status => 200
-        else
-
-        end
+        render :nothing => true, :status => 200
+      else
+        render :nothing => true, :status => 200
       end
-    else
-      render :nothing => true, :status => 200
     end
   end
 
