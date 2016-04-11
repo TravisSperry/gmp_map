@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   # Example of regular route:
   get 'us' => 'pages#us', :defaults => { :format => 'json' }
   get 'coordinates' => 'pages#subscriber_coordinates', :defaults => { :format => 'json' }
-  get 'new_subscriber' => 'subscribers#new_subscriber'
+  post 'new_subscriber' => 'subscribers#new_subscriber'
 end
