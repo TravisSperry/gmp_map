@@ -3,10 +3,15 @@ class SubscribersController < ApplicationController
 
   def new_subscriber
     respond_to do |format|
+      ip_locator_result = Geocoder.search(params['data']['ip_opt'])
+
+      @subscriber = Subscriber.new  longitude: ip_locator_result.first.longitude,
+                                    latitude: ip_locator_result.first.longitude
+
       if @subscriber && @subscriber.save
-        # Pusher.trigger('test_channel', 'my_event', {
-        #   message: 'hello world'
-        # })
+        Pusher.trigger('test_channel', 'my_event', {
+          message: 'hello world'
+        })
         format.html{ render nothing:true }
       else
         format.html{ render nothing:true }
