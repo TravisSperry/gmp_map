@@ -12,6 +12,7 @@ class SubscribersController < ApplicationController
     end
     respond_to do |format|
       if @subscriber && @subscriber.save
+        Pusher.trigger('Subscriber_Channel', 'New_Subscriber', data: [@subscriber.longitude, @subscriber.latitude])
         format.html{ render nothing: true }
       else
         format.html{ render nothing: true }
