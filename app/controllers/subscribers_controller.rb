@@ -7,11 +7,11 @@ class SubscribersController < ApplicationController
 
     respond_to do |format|
       if @subscriber.save
-        Pusher.trigger('test_channel', 'my_event', {
-          message: 'hello world'
-        })
+        # Pusher.trigger('test_channel', 'my_event', {
+        #   message: 'hello world'
+        # })
 
-        render nothing: true
+        render :nothing => true, :status => 200
       else
 
       end
