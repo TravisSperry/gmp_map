@@ -3,18 +3,22 @@ class SubscribersController < ApplicationController
 
   def new_subscriber
     # verify token
-    @subscriber = Subscriber.new(subscriber_params) if subscriber_params
+    if params
+      @subscriber = Subscriber.new(subscriber_params)
 
-    respond_to do |format|
-      if @subscriber.save
-        # Pusher.trigger('test_channel', 'my_event', {
-        #   message: 'hello world'
-        # })
+      respond_to do |format|
+        if @subscriber.save
+          # Pusher.trigger('test_channel', 'my_event', {
+          #   message: 'hello world'
+          # })
 
-        render :nothing => true, :status => 200
-      else
+          render :nothing => true, :status => 200
+        else
 
+        end
       end
+    else
+      render :nothing => true, :status => 200
     end
   end
 
