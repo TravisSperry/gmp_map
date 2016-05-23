@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:map_display]
+  respond_to :html, :json
 
   def map_display
     @subscriber_coordinates = Subscriber.pluck(:longitude, :latitude)
