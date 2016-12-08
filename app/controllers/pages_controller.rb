@@ -6,6 +6,9 @@ class PagesController < ApplicationController
     @subscriber_coordinates = Subscriber.pluck(:longitude, :latitude)
   end
 
+  def irl_gbr
+  end
+
   def subscriber_coordinates
     mailchimp = Mailchimp::API.new(ENV['MAILCHIMP_API_KEY'])
     subscribers = []
@@ -29,8 +32,13 @@ class PagesController < ApplicationController
     render :json => @coordinates
   end
 
-  def us
-    @@data = File.read("#{Rails.root}/app/assets/data/us.json")
-    render :json => @@data
+  def world_data
+    @data = File.read("#{Rails.root}/app/assets/data/world.json")
+    render :json => @data
+  end
+
+  def irl_gbr_data
+    @data = File.read("#{Rails.root}/app/assets/data/ireland_great_britain.json")
+    render :json => @data
   end
 end

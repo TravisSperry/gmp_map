@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#map_display'
 
-  # Example of regular route:
-  get 'us' => 'pages#us', :defaults => { :format => 'json' }
+  get 'irl_gbr' => 'pages#irl_gbr'
+  get 'irl_gbr_data' => 'pages#irl_gbr_data', :defaults => { :format => 'json' }
+  get 'world_data' => 'pages#world_data', :defaults => { :format => 'json' }
   get 'coordinates' => 'pages#subscriber_coordinates', :defaults => { :format => 'json' }
   post 'new_subscriber' => 'subscribers#new_subscriber'
 end
