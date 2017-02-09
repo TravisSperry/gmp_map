@@ -50,9 +50,9 @@ jQuery ->
         stroke: "white"
 
   # Ireland and Great Britain Map
-  svg1 = d3.select('#irl-gbr-canvas').append('svg').attr('width', width).attr('height', height)
-  d3.json 'irl_gbr_data', (error, features) ->
-    console.log features
-    svg1.append("path")
-      .datum(topojson.feature(features[0], features[0].geometry.objects.subunits))
-      .attr("d", d3.geo.path().projection(d3.geo.mercator()))
+  # svg1 = d3.select('#irl-gbr-canvas').append('svg').attr('width', width).attr('height', height)
+  # d3.json 'irl_gbr_data', (error, features) ->
+  #   console.log features
+  #   svg1.append("path")
+  #     .datum(topojson.feature(features[0], features[0].geometry.objects.subunits))
+  #     .attr("d", d3.geo.path().projection(d3.geo.mercator()))
