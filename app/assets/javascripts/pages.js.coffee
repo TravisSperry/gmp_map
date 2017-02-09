@@ -18,7 +18,7 @@ jQuery ->
       cx: xy[0],
       cy: xy[1],
       r: 2,
-      fill: 'red',
+      fill: 'red'
 
 
   svg = d3.select('#map_canvas').append('svg').attr("preserveAspectRatio", "xMinYMin meet")
@@ -47,7 +47,6 @@ jQuery ->
         cy: xy[1],
         r: 2,
         fill: '#333366',
-        stroke-width: 2
         stroke: "white"
 
   # Ireland and Great Britain Map
