@@ -18,7 +18,8 @@ jQuery ->
       cx: xy[0],
       cy: xy[1],
       r: 2,
-      fill: 'red'
+      fill: 'red',
+
 
   svg = d3.select('#map_canvas').append('svg').attr("preserveAspectRatio", "xMinYMin meet")
    .attr("viewBox", "0 0 1500 960")
@@ -45,7 +46,9 @@ jQuery ->
         cx: xy[0],
         cy: xy[1],
         r: 2,
-        fill: '#e2b506'
+        fill: '#333366',
+        stroke-width: 2
+        stroke: "white"
 
   # Ireland and Great Britain Map
   svg1 = d3.select('#irl-gbr-canvas').append('svg').attr('width', width).attr('height', height)
